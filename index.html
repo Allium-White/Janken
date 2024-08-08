@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Janken</title>
 </head>
 
 <body>
     <script>
+
+
         function getComputerChoice() {
             let randNum = Math.random() * 10;
             if (randNum <= (10 / 3)) {
@@ -28,14 +30,37 @@
                 || promptPick === "scissors") {
                 return promptPick;
             } else {
-                return "Enter a valid option"
+                console.log("Enter a valid choice");
             }
         }
 
         let humanScore = 0;
         let computerScore = 0;
 
-        console.log(getHumanChoice());
+        // console.log(getHumanChoice());
+
+        function playRound(humanChoice, computerChoice) {
+            let resultMessage = "";
+
+            if (humanChoice === computerChoice) {
+                resultMessage = "It is a tie";
+            } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
+                (humanChoice === "paper" && computerChoice === "rock") ||
+                (humanChoice === "scissors" && computerChoice === "paper")) {
+                resultMessage = "You win! " + humanChoice + " beats " + computerChoice;
+                humanScore++;
+            } else {
+                resultMessage = "You lose! " + computerChoice + " beats " + humanChoice;
+                computerScore++;
+            }
+
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
     </script>
 
 </body>
