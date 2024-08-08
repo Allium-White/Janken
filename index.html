@@ -9,6 +9,18 @@
 
 <body>
     <script>
+        function getComputerChoice() {
+            let randNum = Math.random() * 10;
+            if (randNum <= (10 / 3)) {
+                return "rock";
+            } else if (randNum > (10 / 3) && randNum <= ((10 / 3) * 2)) {
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+        console.log(getComputerChoice());
     </script>
 
 </body>
