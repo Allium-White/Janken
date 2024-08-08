@@ -21,11 +21,12 @@
         }
 
         function getHumanChoice() {
-            let humanChoice = prompt("Pick a choice from: rock, paper, scissors")
-            if (humanChoice === "rock"
-                || humanChoice === "paper"
-                || humanChoice === "scissors") {
-                return humanChoice;
+            let promptPick = prompt("Pick a choice from: rock, paper, scissors")
+            promptPick = promptPick.toLowerCase();
+            if (promptPick === "rock"
+                || promptPick === "paper"
+                || promptPick === "scissors") {
+                return promptPick;
             } else {
                 return "Enter a valid option"
             }
